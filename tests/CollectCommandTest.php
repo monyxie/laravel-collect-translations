@@ -5,7 +5,7 @@ namespace Monyxie\CollectTranslation\Tests;
 use Monyxie\CollectTranslation\ServiceProvider;
 use Orchestra\Testbench\TestCase;
 
-class TranslationCollectTest extends TestCase {
+class CollectCommandTest extends TestCase {
     protected function getPackageProviders($app) {
         return [ServiceProvider::class];
     }
@@ -15,7 +15,7 @@ class TranslationCollectTest extends TestCase {
      */
     protected function setUp(): void {
         parent::setUp();
-        $this->artisan('translation:collect', ['-r' => true, '-y' => true]);
+        $this->artisan('translations:collect', ['-r' => true, '-y' => true]);
     }
 
     /**

@@ -1,19 +1,19 @@
 <?php
 
-namespace Monyxie\CollectTranslation\Commands;
+namespace Monyxie\CollectTranslation\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use Symfony\Component\Finder\Finder;
 
-class TranslationCollect extends Command {
+class CollectCommand extends Command {
     const JSON_GROUP = '_json';
     /**
      * The console command signature.
      *
      * @var string
      */
-    protected $signature = 'translation:collect
+    protected $signature = 'translations:collect
                             {--G|exclude-group=* : Translation groups to exclude}
                             {--l|locale=zh_cn : Locale to process}
                             {--r|regenerate : Whether the translation files should be regenerated. WARNING: ALL COMMENTS IN YOUR TRANSLATION FILES WILL BE LOST}

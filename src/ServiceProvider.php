@@ -3,7 +3,7 @@
 namespace Monyxie\CollectTranslation;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
-use Monyxie\CollectTranslation\Commands\TranslationCollect;
+use Monyxie\CollectTranslation\Console\CollectCommand;
 
 class ServiceProvider extends LaravelServiceProvider {
     /**
@@ -12,7 +12,7 @@ class ServiceProvider extends LaravelServiceProvider {
     public function boot() {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                TranslationCollect::class,
+                CollectCommand::class,
             ]);
         }
     }
