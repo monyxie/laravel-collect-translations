@@ -16,7 +16,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Monyxie\\CollectTranslations\\": "src\\"
+      "Monyxie\\CollectTranslation\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Monyxie\\CollectTranslation\\Tests\\": "tests/"
     }
   },
   "extra": {
@@ -25,5 +30,8 @@
         "Monyxie\\CollectTranslation\\ServiceProvider"
       ]
     }
+  },
+  "require-dev": {
+    "orchestra/testbench": "^4.0"
   }
 }

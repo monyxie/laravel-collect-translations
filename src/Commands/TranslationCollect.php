@@ -17,7 +17,8 @@ class TranslationCollect extends Command {
                             {--G|exclude-group=* : Translation groups to exclude}
                             {--l|locale=zh_cn : Locale to process}
                             {--r|regenerate : Whether the translation files should be regenerated. WARNING: ALL COMMENTS IN YOUR TRANSLATION FILES WILL BE LOST}
-                            {--sort} : Whether the newly generated translation items should be sorted';
+                            {--sort} : Whether the newly generated translation items should be sorted
+                            {--y|yes} : Answer all confirmation questions with YES';
     /**
      * The console command name.
      *
@@ -78,9 +79,14 @@ class TranslationCollect extends Command {
             }
         }
 
-        if ($this->option('fix')) {
+        if ($this->option('regenerate')) {
             $languagePath = $this->getLanguagePath();
-            if ($this->confirm("Overwrite translation files under $languagePath ?")) {
+            if ($this->option('yes') || $this->confirm("Overwrite translation files under $languagePath ?")) {
+
+                if (!file_exists($languagePath)) {
+                    mkdir($languagePath, 0777, true);
+                }
+
                 foreach ($useful as $group => $items) {
                     $file = $languagePath . '/' . $group . '.php';
 
@@ -99,6 +105,10 @@ class TranslationCollect extends Command {
      */
     private function findDefined() {
         $langPath = $this->getLanguagePath();
+
+        if (!file_exists($langPath)) {
+            return [];
+        }
 
         $finder = new Finder();
         $files = $finder->in($langPath)->files()->getIterator();

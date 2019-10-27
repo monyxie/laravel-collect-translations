@@ -1,2 +1,4 @@
 /vendor/
 composer.lock
+tests/base_path/resources
+/.phpunit.result.cache
