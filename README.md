@@ -15,5 +15,5 @@ $ php artisan translations:collect
 
 ## Credits
 The function that finds the translation items from source
-are take directly from the `barryvdh/laravel-translation-manager
-` package with little modification.
+are take directly from the [barryvdh/laravel-translation-manager
+](https://github.com/barryvdh/laravel-translation-manager) package with little modification.
