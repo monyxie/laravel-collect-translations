@@ -1,0 +1,29 @@
+{
+  "name": "monyxie/laravel-collect-translations",
+  "description": "Collect translation items from your source code.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mony Xie",
+      "email": "monyxie@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "illuminate/console": "*",
+    "symfony/finder": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Monyxie\\CollectTranslations\\": "src\\"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Monyxie\\CollectTranslation\\ServiceProvider"
+      ]
+    }
+  }
+}
